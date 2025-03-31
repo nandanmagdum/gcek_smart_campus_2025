@@ -22,6 +22,12 @@ class HomePage extends StatelessWidget {
               fontSize: 22,
             ),
           ),
+          ElevatedButton(
+            onPressed: () {
+              context.push(Navigation.settingsRoute);
+            },
+            child: Text("Settings"),
+          ),
         ],
       ),
     );

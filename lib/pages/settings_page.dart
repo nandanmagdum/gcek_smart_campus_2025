@@ -27,13 +27,9 @@ class SettingsPage extends StatelessWidget {
             ),
             Obx(
               () => Switch(
-                value: themeController.themeMode.value == ThemeMode.dark
-                    ? true
-                    : false,
+                value: themeController.isDarkMode.value,
                 onChanged: (value) async {
-                  // true for dart
-                  // false for light
-                  themeController.toggleTheme();
+                  themeController.toggleTheme(value);
                   await LocalStorage.setBool(LocalStorage.themeKey, value);
                 },
               ),

@@ -18,15 +18,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ThemeController themeController = Get.find();
-    return Obx(
-      () => MaterialApp.router(
-        debugShowCheckedModeBanner: false,
-        themeMode: themeController.themeMode.value,
-        theme: AppColors.lightTheme,
-        darkTheme: AppColors.darkTheme,
-        routerConfig: Navigation.router,
-      ),
+    return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
+      routerConfig: Navigation.router,
     );
   }
 }

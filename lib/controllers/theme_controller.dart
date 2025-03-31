@@ -1,14 +1,15 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:smart_campus/utils/local_storage.dart';
 
 class ThemeController extends GetxController {
-  Rx<ThemeMode> themeMode = LocalStorage.getBool(LocalStorage.themeKey) ?? false
-      ? ThemeMode.dark.obs
-      : ThemeMode.light.obs;
+  Rx<bool> isDarkMode =
+      (LocalStorage.getBool(LocalStorage.themeKey) ?? false).obs;
 
-  void toggleTheme() {
-    themeMode.value =
-        themeMode.value == ThemeMode.dark ? ThemeMode.light : ThemeMode.dark;
+  void toggleTheme(bool value) async {
+    value ? isDarkMode.value = true : isDarkMode.value = false;
+    await LocalStorage.setBool(LocalStorage.themeKey, value);
   }
 }
+
+// true for dark mode
+// false for light theme
