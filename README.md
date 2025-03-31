@@ -25,9 +25,9 @@ The Government College of Engineering, Karad, is an autonomous technical institu
 - Git for version control
 
 ### Installation
-1. Clone the repository:
+<!-- 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/CampusConnect.git
+   git clone https://github.com/yourusername/CampusConnect.git -->
 
 ### Contact Information:
 Email: atharvc2022@gmail.com
