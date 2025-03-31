@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:smart_campus/src/pages/home_page.dart';
+import 'package:smart_campus/controllers/theme_controller.dart';
+import 'package:smart_campus/pages/home_page.dart';
+import 'package:get/get.dart';
+import 'package:smart_campus/utils/local_storage.dart';
+import 'package:smart_campus/utils/navigation.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await LocalStorage.init();
+  Get.lazyPut(() => ThemeController());
   runApp(MyApp());
 }
 
@@ -10,9 +17,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: HomePage(),
+    final ThemeController themeController = Get.find();
+    return Obx(
+      () => MaterialApp.router(
+        debugShowCheckedModeBanner: false,
+        themeMode: themeController.themeMode.value,
+        theme: ThemeData.light(),
+        darkTheme: ThemeData.dark(),
+        routerConfig: Navigation.router,
+      ),
     );
   }
 }
