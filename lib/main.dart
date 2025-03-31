@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_campus/constants/app_colors.dart';
 import 'package:smart_campus/controllers/theme_controller.dart';
 import 'package:smart_campus/pages/home_page.dart';
 import 'package:get/get.dart';
@@ -22,8 +23,8 @@ class MyApp extends StatelessWidget {
       () => MaterialApp.router(
         debugShowCheckedModeBanner: false,
         themeMode: themeController.themeMode.value,
-        theme: ThemeData.light(),
-        darkTheme: ThemeData.dark(),
+        theme: AppColors.lightTheme,
+        darkTheme: AppColors.darkTheme,
         routerConfig: Navigation.router,
       ),
     );

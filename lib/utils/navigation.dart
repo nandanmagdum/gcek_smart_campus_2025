@@ -1,6 +1,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:smart_campus/pages/home_page.dart';
 import 'package:smart_campus/pages/settings_page.dart';
+import 'package:smart_campus/pages/temp.dart';
 
 class Navigation {
   static const rootRoute = "/";

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:smart_campus/utils/navigation.dart';
+import 'package:smart_campus/widgets/primary_app_bar.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -8,27 +9,20 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("GCEK Sphere"),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "Welcome to GCEK Sphere App",
+      appBar: PrimaryAppBar(),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SizedBox(
+            width: MediaQuery.of(context).size.width,
+          ),
+          Text(
+            "Welcome to GCEK Sphere App",
+            style: TextStyle(
+              fontSize: 22,
             ),
-            SizedBox(
-              height: 20,
-            ),
-            ElevatedButton(
-                onPressed: () {
-                  context.push(Navigation.settingsRoute);
-                },
-                child: Text("Settings"))
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
