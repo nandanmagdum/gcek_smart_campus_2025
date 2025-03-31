@@ -9,7 +9,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("GCEK Smart Campus"),
+        title: Text("GCEK Sphere"),
       ),
       body: Padding(
         padding: const EdgeInsets.all(12.0),
@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Welcome to GCEK Smart Campus App",
+              "Welcome to GCEK Sphere App",
             ),
             SizedBox(
               height: 20,
