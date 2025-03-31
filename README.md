@@ -29,5 +29,5 @@ The Government College of Engineering, Karad, is an autonomous technical institu
    ```bash
    git clone https://github.com/yourusername/CampusConnect.git
 
-Contact Information:
+### Contact Information:
 Email: atharvc2022@gmail.com
