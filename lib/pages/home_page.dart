@@ -25,12 +25,17 @@ class HomePage extends StatelessWidget {
           ),
         ),
         backgroundColor: ThemeController.scaffoldBackgroudColor.value,
-        body: Center(
-          child: Text(
-            "Hello",
-            style: TextStyle(
-              color: ThemeController.scaffoldTextColor.value,
-            ),
+        body: Padding(
+          padding: EdgeInsetsDirectional.symmetric(
+            horizontal: 10,
+            vertical: 12,
+          ),
+          child: Column(
+            children: [
+              Text(
+                "Hello",
+              ),
+            ],
           ),
         ),
       ),
