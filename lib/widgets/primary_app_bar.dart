@@ -9,19 +9,13 @@ class PrimaryAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ThemeController themeController = Get.find();
-
     return Obx(
       () => AppBar(
-        backgroundColor: themeController.isDarkMode.value
-            ? AppColors.palate1
-            : AppColors.palate3,
+        backgroundColor: ThemeController.appbarBackgroundColor.value,
         title: Text(
           title ?? "GCEK Sphere",
           style: TextStyle(
-            color: themeController.isDarkMode.value
-                ? AppColors.palate4
-                : AppColors.palate1,
+            color: ThemeController.appbarTextColor.value,
             fontSize: 24,
             fontWeight: FontWeight.bold,
           ),
