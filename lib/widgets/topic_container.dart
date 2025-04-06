@@ -18,7 +18,7 @@ class TopicContainer extends StatelessWidget {
       effects: [
         FadeEffect(
           duration: Duration(
-            seconds: 1,
+            milliseconds: 800,
           ),
         ),
         SlideEffect(

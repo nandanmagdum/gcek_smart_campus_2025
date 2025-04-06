@@ -14,7 +14,7 @@ class TitleContainer extends StatelessWidget {
       effects: [
         FadeEffect(
           duration: Duration(
-            seconds: 1,
+            milliseconds: 300,
           ),
         ),
         SlideEffect(

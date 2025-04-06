@@ -76,7 +76,7 @@ class ContactUsContainer extends StatelessWidget {
                 ],
               ),
               Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   customRichText(
                     firstText: 'Address',
@@ -220,6 +220,7 @@ class ContactUsContainer extends StatelessWidget {
   RichText customRichText(
       {required String firstText, required String secondText}) {
     return RichText(
+      textAlign: TextAlign.center,
       text: TextSpan(
         children: [
           TextSpan(

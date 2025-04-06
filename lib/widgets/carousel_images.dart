@@ -16,21 +16,29 @@ class CarouselImages extends StatelessWidget {
     return Obx(
       () {
         if (homePageController.homepageImages.isEmpty) {
-          return Container(
-            constraints: BoxConstraints(
-              maxHeight: 600,
-              maxWidth: 600,
-            ),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(12),
-              child: Image.asset(
-                'assets/images/gcek1.jpg',
-                fit: BoxFit.cover,
-                height: MediaQuery.of(context).size.width * 0.9,
-                width: MediaQuery.of(context).size.width * 0.9,
+          return Animate(
+            effects: [
+              FadeEffect(
+                  duration: Duration(
+                milliseconds: 100,
+              ))
+            ],
+            child: Container(
+              constraints: BoxConstraints(
+                maxHeight: 600,
+                maxWidth: 600,
+              ),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: Image.asset(
+                  'assets/images/gcek1.jpg',
+                  fit: BoxFit.cover,
+                  height: MediaQuery.of(context).size.width * 0.9,
+                  width: MediaQuery.of(context).size.width * 0.9,
+                ),
               ),
             ),
           );
