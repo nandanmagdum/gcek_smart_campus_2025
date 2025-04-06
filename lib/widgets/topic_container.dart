@@ -15,7 +15,20 @@ class TopicContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Animate(
-      effects: [FadeEffect(), SlideEffect()],
+      effects: [
+        FadeEffect(
+          duration: Duration(
+            seconds: 1,
+          ),
+        ),
+        SlideEffect(
+          begin: Offset(0, 2),
+          end: Offset(0, 0),
+          duration: Duration(
+            seconds: 1,
+          ),
+        ),
+      ],
       child: Padding(
         padding: EdgeInsetsDirectional.symmetric(horizontal: 5),
         child: Material(

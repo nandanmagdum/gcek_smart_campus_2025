@@ -12,8 +12,18 @@ class TitleContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Animate(
       effects: [
-        FadeEffect(),
-        SlideEffect(),
+        FadeEffect(
+          duration: Duration(
+            seconds: 1,
+          ),
+        ),
+        SlideEffect(
+          begin: Offset(0, 2),
+          end: Offset(0, 0),
+          duration: Duration(
+            seconds: 1,
+          ),
+        ),
       ],
       child: Container(
         height: 50,
