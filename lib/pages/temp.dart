@@ -9,7 +9,7 @@ class TEMP extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("GCEK Sphere"),
+        title: Text("Campus Sphere"),
       ),
       body: Padding(
         padding: const EdgeInsets.all(12.0),
@@ -21,7 +21,7 @@ class TEMP extends StatelessWidget {
               width: MediaQuery.of(context).size.width,
             ),
             Text(
-              "Welcome to GCEK Sphere App",
+              "Welcome to Campus Sphere App",
               style: TextStyle(
                 fontSize: 18,
               ),

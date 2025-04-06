@@ -7,6 +7,35 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:389423974340:android:5d29057567e7bdecc9c691",
+        "android_client_info": {
+          "package_name": "com.campus.sphere"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "389423974340-a28cabappj8i9la4i7gok5uh9084pt2f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCA3VXNr_p_j8LDtf2aTUKL3otur6GA71I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "389423974340-a28cabappj8i9la4i7gok5uh9084pt2f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:389423974340:android:73e4fbab8ee93613c9c691",
         "android_client_info": {
           "package_name": "com.example.smart_campus"

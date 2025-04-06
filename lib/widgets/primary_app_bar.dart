@@ -13,7 +13,7 @@ class PrimaryAppBar extends StatelessWidget implements PreferredSizeWidget {
       () => AppBar(
         backgroundColor: ThemeController.appbarBackgroundColor.value,
         title: Text(
-          title ?? "GCEK Sphere",
+          title ?? "Campus Sphere",
           style: TextStyle(
             color: ThemeController.appbarTextColor.value,
             fontSize: 24,

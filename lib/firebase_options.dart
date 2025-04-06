@@ -54,9 +54,10 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyCA3VXNr_p_j8LDtf2aTUKL3otur6GA71I',
-    appId: '1:389423974340:android:3df59549bcc358d9c9c691',
+    appId: '1:389423974340:android:5d29057567e7bdecc9c691',
     messagingSenderId: '389423974340',
     projectId: 'smart-campus-app',
     storageBucket: 'smart-campus-app.appspot.com',
   );
+
 }
