@@ -18,7 +18,6 @@ class HomePageController extends GetxController {
     Timer.periodic(
       Duration(seconds: 3),
       (timer) {
-        print("✅ chaning current index");
         if (homepageImages.isNotEmpty) {
           if (currentIndex < homepageImages.length - 1) {
             currentIndex.value++;

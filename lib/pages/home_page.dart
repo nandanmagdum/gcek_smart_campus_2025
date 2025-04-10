@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:smart_campus/constants/app_colors.dart';
 import 'package:smart_campus/controllers/home_page_controller.dart';
+import 'package:smart_campus/controllers/link_controller.dart';
 import 'package:smart_campus/controllers/theme_controller.dart';
+import 'package:smart_campus/utils/app_url_launcher.dart';
+import 'package:smart_campus/utils/dynamic_links.dart';
 import 'package:smart_campus/utils/navigation.dart';
 import 'package:smart_campus/widgets/carousel_images.dart';
 import 'package:smart_campus/widgets/contact_us_container.dart';
@@ -16,6 +19,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final LinkController linkController = Get.find();
     return Obx(
       () => Scaffold(
         appBar: PrimaryAppBar(),
@@ -144,6 +148,12 @@ class HomePage extends StatelessWidget {
                 SizedBox(
                   height: 10,
                 ),
+                // TextButton(
+                //   onPressed: () async {
+                //     AppUrlLauncher.lauchTheUrl(linkController.links['test']);
+                //   },
+                //   child: Text("Test"),
+                // ),
               ],
             ),
           ),
