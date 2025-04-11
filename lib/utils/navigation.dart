@@ -9,6 +9,8 @@ import 'package:smart_campus/pages/important/scholarship_page.dart';
 import 'package:smart_campus/pages/main_pages/about_gcek_page.dart';
 import 'package:smart_campus/pages/main_pages/branches_page.dart';
 import 'package:smart_campus/pages/main_pages/facilities_page.dart';
+import 'package:smart_campus/pages/main_pages/pdf_view.dart';
+import 'package:smart_campus/pages/main_pages/placement_page.dart';
 import 'package:smart_campus/pages/settings_page.dart';
 import 'package:smart_campus/pages/temp.dart';
 
@@ -22,6 +24,8 @@ class Navigation {
   static const aboutGCEKRoute = '/aboutGCEK';
   static const branchRoute = '/branch';
   static const facilitiesRoute = '/facilities';
+  static const pdfViewRoute = '/pdfView';
+  static const placementRecordRoute = '/placement_pdf';
 
   static final GoRouter router = GoRouter(
     initialLocation: rootRoute,
@@ -79,6 +83,19 @@ class Navigation {
         path: facilitiesRoute,
         builder: (context, state) {
           return FacilitiesPage();
+        },
+      ),
+      GoRoute(
+        path: pdfViewRoute,
+        builder: (context, state) {
+          final year = state.extra as String;
+          return PdfView(year);
+        },
+      ),
+      GoRoute(
+        path: placementRecordRoute,
+        builder: (context, state) {
+          return PlacementPage();
         },
       ),
     ],

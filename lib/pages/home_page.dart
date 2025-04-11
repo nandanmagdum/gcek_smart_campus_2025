@@ -143,6 +143,7 @@ class HomePage extends StatelessWidget {
                     TopicContainer(
                       text: 'Placement',
                       imagePath: 'assets/app_icons/placement.png',
+                      newPage: Navigation.placementRecordRoute,
                     ),
                     TopicContainer(
                       text: 'College Clubs',

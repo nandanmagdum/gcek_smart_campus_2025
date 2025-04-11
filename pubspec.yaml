@@ -46,6 +46,7 @@ dependencies:
   cached_network_image: ^3.4.1
   url_launcher: ^6.3.1
   flutter_animate: ^4.5.2
+  syncfusion_flutter_pdfviewer: ^26.2.7
 
 dev_dependencies:
   flutter_test:
@@ -74,6 +75,7 @@ flutter:
     - assets/
     - assets/app_icons/
     - assets/images/
+    - assets/pdfs/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
