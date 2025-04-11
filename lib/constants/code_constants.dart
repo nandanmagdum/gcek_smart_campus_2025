@@ -7,4 +7,5 @@ class CodeConstants {
   static const youtube = 'youtube';
   static const twitter = 'twitter';
   static const privacyPolicy = 'privacyPolicy';
+  static const newsAndUpdates = 'news_and_updates';
 }

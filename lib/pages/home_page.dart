@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:smart_campus/constants/app_colors.dart';
 import 'package:smart_campus/controllers/home_page_controller.dart';
 import 'package:smart_campus/controllers/link_controller.dart';
+import 'package:smart_campus/controllers/news_and_update_controller.dart';
 import 'package:smart_campus/controllers/theme_controller.dart';
 import 'package:smart_campus/utils/app_url_launcher.dart';
 import 'package:smart_campus/utils/dynamic_links.dart';
@@ -20,6 +21,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final LinkController linkController = Get.find();
+    final NewsAndUpdateController newsAndUpdateController = Get.find();
     return Obx(
       () => Scaffold(
         appBar: PrimaryAppBar(),
@@ -52,12 +54,14 @@ class HomePage extends StatelessWidget {
                   alignment: WrapAlignment.center,
                   children: [
                     TopicContainer(
+                      newPage: Navigation.admissionRoute,
                       text: "Admission",
                       imagePath: 'assets/app_icons/admission.png',
                     ),
                     TopicContainer(
                       text: "Document",
                       imagePath: 'assets/app_icons/document.png',
+                      newPage: Navigation.documentsRoute,
                     ),
                     TopicContainer(
                       text: "Scholarship",
@@ -74,28 +78,42 @@ class HomePage extends StatelessWidget {
                 SizedBox(
                   height: 10,
                 ),
-                Wrap(
-                  runSpacing: 10,
-                  direction: Axis.horizontal,
-                  alignment: WrapAlignment.center,
-                  children: [
-                    TopicContainer(
-                      text: 'MHT-CET',
-                      imagePath: 'assets/app_icons/mht_cet.png',
-                    ),
-                    TopicContainer(
-                      text: 'JEE Main',
-                      imagePath: 'assets/app_icons/jee_main.png',
-                    ),
-                    TopicContainer(
-                      text: 'Cap Round',
-                      imagePath: 'assets/app_icons/cap_round.png',
-                    ),
-                    TopicContainer(
-                      text: 'GCEK Web',
-                      imagePath: 'assets/app_icons/gcek_logo.png',
-                    ),
-                  ],
+                Obx(
+                  () => newsAndUpdateController.data.isEmpty
+                      ? SizedBox()
+                      : Wrap(
+                          runSpacing: 10,
+                          direction: Axis.horizontal,
+                          alignment: WrapAlignment.center,
+                          children: newsAndUpdateController.data
+                              .map(
+                                (model) => TopicContainer(
+                                  text: model.name ?? "",
+                                  imagePath: model.imageUrl ?? "",
+                                  link: model.url,
+                                  imageUrl: model.imageUrl,
+                                ),
+                              )
+                              .toList(),
+                          // children: [
+                          //   TopicContainer(
+                          //     text: 'MHT-CET',
+                          //     imagePath: 'assets/app_icons/mht_cet.png',
+                          //   ),
+                          //   TopicContainer(
+                          //     text: 'JEE Main',
+                          //     imagePath: 'assets/app_icons/jee_main.png',
+                          //   ),
+                          //   TopicContainer(
+                          //     text: 'Cap Round',
+                          //     imagePath: 'assets/app_icons/cap_round.png',
+                          //   ),
+                          //   TopicContainer(
+                          //     text: 'GCEK Web',
+                          //     imagePath: 'assets/app_icons/gcek_logo.png',
+                          //   ),
+                          // ],
+                        ),
                 ),
                 SizedBox(
                   height: 30,
@@ -131,14 +149,14 @@ class HomePage extends StatelessWidget {
                       text: 'Facilities',
                       imagePath: 'assets/app_icons/facility.png',
                     ),
-                    TopicContainer(
-                      text: 'Placement Galary',
-                      imagePath: 'assets/app_icons/placement.png',
-                    ),
-                    TopicContainer(
-                      text: 'Services',
-                      imagePath: 'assets/app_icons/services.png',
-                    ),
+                    // TopicContainer(
+                    //   text: 'Placement Galary',
+                    //   imagePath: 'assets/app_icons/placement.png',
+                    // ),
+                    // TopicContainer(
+                    //   text: 'Services',
+                    //   imagePath: 'assets/app_icons/services.png',
+                    // ),
                   ],
                 ),
                 SizedBox(
@@ -148,12 +166,6 @@ class HomePage extends StatelessWidget {
                 SizedBox(
                   height: 10,
                 ),
-                // TextButton(
-                //   onPressed: () async {
-                //     AppUrlLauncher.lauchTheUrl(linkController.links['test']);
-                //   },
-                //   child: Text("Test"),
-                // ),
               ],
             ),
           ),

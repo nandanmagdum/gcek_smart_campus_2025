@@ -19,4 +19,12 @@ class AppUrlLauncher {
       throw Exception('Could not launch ${email}');
     }
   }
+
+  static void launchPhone(String phoneNumber) async {
+    final uri = Uri(scheme: 'tel', path: phoneNumber);
+    if (!await launchUrl(uri)) {
+      print("🚨 alert launching phone");
+      throw Exception('Could not launch ${phoneNumber}');
+    }
+  }
 }
