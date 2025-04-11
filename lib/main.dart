@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:smart_campus/constants/app_colors.dart';
+import 'package:smart_campus/controllers/club_controller.dart';
 import 'package:smart_campus/controllers/contact_us_controller.dart';
 import 'package:smart_campus/controllers/home_page_controller.dart';
 import 'package:smart_campus/controllers/link_controller.dart';
@@ -23,6 +24,7 @@ void main() async {
   Get.put(LinkController());
   Get.put(ContactUsController());
   Get.put(NewsAndUpdateController());
+  Get.put(ClubController());
   runApp(MyApp());
 }
 

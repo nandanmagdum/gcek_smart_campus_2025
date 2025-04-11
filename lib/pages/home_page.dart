@@ -148,6 +148,7 @@ class HomePage extends StatelessWidget {
                     TopicContainer(
                       text: 'College Clubs',
                       imagePath: 'assets/app_icons/campus_life.png',
+                      newPage: Navigation.clubLandingRoute,
                     ),
                     TopicContainer(
                       text: 'Facilities',

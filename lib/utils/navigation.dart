@@ -1,6 +1,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:smart_campus/data/documents_data.dart';
 import 'package:smart_campus/models/document_list_model.dart';
+import 'package:smart_campus/pages/clubs/club_landing_page.dart';
 import 'package:smart_campus/pages/home_page.dart';
 import 'package:smart_campus/pages/important/admission_page.dart';
 import 'package:smart_campus/pages/important/document_list_page.dart';
@@ -26,6 +27,7 @@ class Navigation {
   static const facilitiesRoute = '/facilities';
   static const pdfViewRoute = '/pdfView';
   static const placementRecordRoute = '/placement_pdf';
+  static const clubLandingRoute = '/clubs';
 
   static final GoRouter router = GoRouter(
     initialLocation: rootRoute,
@@ -98,6 +100,12 @@ class Navigation {
           return PlacementPage();
         },
       ),
+      GoRoute(
+        path: clubLandingRoute,
+        builder: (context, state) {
+          return ClubLandingPage();
+        },
+      )
     ],
   );
 }
