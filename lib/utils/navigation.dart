@@ -6,6 +6,9 @@ import 'package:smart_campus/pages/important/admission_page.dart';
 import 'package:smart_campus/pages/important/document_list_page.dart';
 import 'package:smart_campus/pages/important/documents_page.dart';
 import 'package:smart_campus/pages/important/scholarship_page.dart';
+import 'package:smart_campus/pages/main_pages/about_gcek_page.dart';
+import 'package:smart_campus/pages/main_pages/branches_page.dart';
+import 'package:smart_campus/pages/main_pages/facilities_page.dart';
 import 'package:smart_campus/pages/settings_page.dart';
 import 'package:smart_campus/pages/temp.dart';
 
@@ -16,6 +19,9 @@ class Navigation {
   static const documentsRoute = '/documents';
   static const documentListRoute = '/documents/list';
   static const scholarshipRoute = '/scholarship';
+  static const aboutGCEKRoute = '/aboutGCEK';
+  static const branchRoute = '/branch';
+  static const facilitiesRoute = '/facilities';
 
   static final GoRouter router = GoRouter(
     initialLocation: rootRoute,
@@ -56,7 +62,25 @@ class Navigation {
         builder: (context, state) {
           return ScholarshipPage();
         },
-      )
+      ),
+      GoRoute(
+        path: aboutGCEKRoute,
+        builder: (context, state) {
+          return AboutGcekPage();
+        },
+      ),
+      GoRoute(
+        path: branchRoute,
+        builder: (context, state) {
+          return BranchesPage();
+        },
+      ),
+      GoRoute(
+        path: facilitiesRoute,
+        builder: (context, state) {
+          return FacilitiesPage();
+        },
+      ),
     ],
   );
 }

@@ -133,10 +133,12 @@ class HomePage extends StatelessWidget {
                     TopicContainer(
                       text: 'About GCEK',
                       imagePath: 'assets/app_icons/about_gcek.png',
+                      newPage: Navigation.aboutGCEKRoute,
                     ),
                     TopicContainer(
                       text: 'Branches',
                       imagePath: 'assets/app_icons/branches.png',
+                      newPage: Navigation.branchRoute,
                     ),
                     TopicContainer(
                       text: 'Placement',
@@ -149,6 +151,7 @@ class HomePage extends StatelessWidget {
                     TopicContainer(
                       text: 'Facilities',
                       imagePath: 'assets/app_icons/facility.png',
+                      newPage: Navigation.facilitiesRoute,
                     ),
                     // TopicContainer(
                     //   text: 'Placement Galary',

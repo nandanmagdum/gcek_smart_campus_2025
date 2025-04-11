@@ -12,13 +12,17 @@ class InfoContainer extends StatelessWidget {
   final String title;
   final String? route;
   final double? fontSize;
+  final TextAlign? textAlign;
   final FontWeight? fontWeight;
+  final bool textPadding;
   const InfoContainer({
     super.key,
     required this.title,
     this.route,
     this.fontSize,
     this.fontWeight,
+    this.textAlign,
+    this.textPadding = false,
   });
 
   @override
@@ -34,7 +38,7 @@ class InfoContainer extends StatelessWidget {
           begin: Offset(0, 2),
           end: const Offset(0, 0),
           duration: Duration(
-            seconds: 1,
+            milliseconds: 900,
           ),
         ),
       ],
@@ -47,19 +51,21 @@ class InfoContainer extends StatelessWidget {
           }
         },
         child: Container(
-            constraints: BoxConstraints(
-              minHeight: 50,
-            ),
-            margin: const EdgeInsets.symmetric(vertical: 1),
-            padding: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
-            decoration: BoxDecoration(
-              color: AppColors.palate5,
-              borderRadius: BorderRadius.circular(12),
-            ),
-            width: MediaQuery.of(context).size.width * 0.9,
-            child: Center(
+          constraints: BoxConstraints(
+            minHeight: 50,
+          ),
+          margin: const EdgeInsets.symmetric(vertical: 1),
+          padding: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+          decoration: BoxDecoration(
+            color: AppColors.palate5,
+            borderRadius: BorderRadius.circular(12),
+          ),
+          width: MediaQuery.of(context).size.width * 0.9,
+          child: Center(
+            child: Padding(
+              padding: EdgeInsets.all(textPadding ? 12 : 0),
               child: Text(
-                textAlign: TextAlign.center,
+                textAlign: textAlign ?? TextAlign.center,
                 title,
                 style: TextStyle(
                   color: Colors.black,
@@ -67,7 +73,9 @@ class InfoContainer extends StatelessWidget {
                   fontWeight: fontWeight ?? FontWeight.bold,
                 ),
               ),
-            )),
+            ),
+          ),
+        ),
       ),
     );
   }
