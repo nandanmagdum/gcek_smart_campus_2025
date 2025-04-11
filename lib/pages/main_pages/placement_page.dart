@@ -58,7 +58,7 @@ class PlacementPage extends StatelessWidget {
                   .toList()
                   .animate(
                     delay: Duration(
-                      milliseconds: 200,
+                      milliseconds: 400,
                     ),
                   )
                   .fadeIn(
@@ -67,8 +67,8 @@ class PlacementPage extends StatelessWidget {
                     ),
                     curve: Curves.easeIn,
                   )
-                  .slideX(
-                    begin: -0.2,
+                  .slideY(
+                    begin: 0.5,
                     end: 0,
                     duration: Duration(
                       milliseconds: 400,

@@ -1,9 +1,11 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:smart_campus/data/scholarship_data.dart';
+import 'package:smart_campus/pages/main_pages/about_gcek_page.dart';
 import 'package:smart_campus/widgets/info_container.dart';
 import 'package:smart_campus/widgets/primary_app_bar.dart';
 import 'package:smart_campus/widgets/title_container.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 class ScholarshipPage extends StatelessWidget {
   const ScholarshipPage({super.key});
@@ -29,42 +31,68 @@ class ScholarshipPage extends StatelessWidget {
               ),
               TitleContainer(title: 'Scholarships'),
               SizedBox(
-                height: 20,
+                height: 10,
               ),
               ListView.builder(
                 shrinkWrap: true,
                 itemCount: ScholarshipData.ScholarshipsDetails.length,
                 itemBuilder: (context, index) {
-                  return Row(
-                    children: [
-                      ConstrainedBox(
-                        constraints: BoxConstraints(
-                          maxWidth: MediaQuery.of(context).size.width * 0.3,
+                  return Padding(
+                    padding: EdgeInsets.only(
+                      top: 5,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        ConstrainedBox(
+                          constraints: BoxConstraints(
+                            maxWidth: MediaQuery.of(context).size.width * 0.3,
+                          ),
+                          child: InfoContainer(
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                            title: ScholarshipData
+                                .ScholarshipsDetails[index].keys.first,
+                          ),
                         ),
-                        child: InfoContainer(
-                          fontSize: 12,
-                          fontWeight: FontWeight.bold,
-                          title: ScholarshipData
-                              .ScholarshipsDetails[index].keys.first,
+                        SizedBox(
+                          width: 5,
                         ),
-                      ),
-                      ConstrainedBox(
-                        constraints: BoxConstraints(
-                          maxWidth: MediaQuery.of(context).size.width * 0.6,
+                        ConstrainedBox(
+                          constraints: BoxConstraints(
+                            maxWidth: MediaQuery.of(context).size.width * 0.6,
+                          ),
+                          child: InfoContainer(
+                            fontSize: 12,
+                            fontWeight: FontWeight.normal,
+                            title: ScholarshipData
+                                .ScholarshipsDetails[index].values.first,
+                          ),
                         ),
-                        child: InfoContainer(
-                          fontSize: 12,
-                          fontWeight: FontWeight.normal,
-                          title: ScholarshipData
-                              .ScholarshipsDetails[index].values.first,
+                      ],
+                    ),
+                  )
+                      .animate(
+                        delay: Duration(
+                          milliseconds: 200 * (index % 10),
                         ),
-                      ),
-                    ],
-                  );
-                  return Text(
-                    ScholarshipData.ScholarshipsDetails[index].values.first,
-                  );
+                      )
+                      .fadeIn(
+                        curve: Curves.easeInQuint,
+                        duration: Duration(
+                          milliseconds: 400,
+                        ),
+                      )
+                      .slideY(
+                        duration: Duration(milliseconds: 400),
+                        begin: 0.5,
+                        end: 0,
+                        curve: Curves.easeInQuint,
+                      );
                 },
+              ),
+              SizedBox(
+                height: 20,
               ),
             ],
           ),

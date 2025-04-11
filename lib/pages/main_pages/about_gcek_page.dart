@@ -150,18 +150,22 @@ class AboutGcekPage extends StatelessWidget {
             ]
                 .animate(
                   delay: Duration(
-                    milliseconds: 600,
+                    milliseconds: 100,
                   ),
                 )
                 .fadeIn(
                   duration: Duration(
                     milliseconds: 400,
                   ),
+                  curve: Curves.easeInQuint,
                 )
                 .slideY(
-                  begin: 0.5,
+                  begin: 0.1,
                   end: 0,
                   curve: Curves.easeInQuint,
+                  duration: Duration(
+                    milliseconds: 400,
+                  ),
                 ),
           ),
         ),

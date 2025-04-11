@@ -271,7 +271,16 @@ class ContactUsContainer extends StatelessWidget {
               style: TextStyle(
                 fontWeight: FontWeight.normal,
               ),
-              recognizer: TapGestureRecognizer()..onTap = () {}),
+              recognizer: TapGestureRecognizer()
+                ..onTap = () {
+                  if (secondText.startsWith('+')) {
+                    AppUrlLauncher.launchPhone(secondText);
+                  } else if (secondText.contains('@')) {
+                    AppUrlLauncher.launchEmail(secondText);
+                  } else if (secondText.startsWith('http')) {
+                    AppUrlLauncher.lauchTheUrl(secondText);
+                  }
+                }),
         ],
       ),
     );
