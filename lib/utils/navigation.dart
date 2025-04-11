@@ -5,6 +5,7 @@ import 'package:smart_campus/pages/home_page.dart';
 import 'package:smart_campus/pages/important/admission_page.dart';
 import 'package:smart_campus/pages/important/document_list_page.dart';
 import 'package:smart_campus/pages/important/documents_page.dart';
+import 'package:smart_campus/pages/important/scholarship_page.dart';
 import 'package:smart_campus/pages/settings_page.dart';
 import 'package:smart_campus/pages/temp.dart';
 
@@ -14,6 +15,8 @@ class Navigation {
   static const admissionRoute = '/admission';
   static const documentsRoute = '/documents';
   static const documentListRoute = '/documents/list';
+  static const scholarshipRoute = '/scholarship';
+
   static final GoRouter router = GoRouter(
     initialLocation: rootRoute,
     routes: [
@@ -48,6 +51,12 @@ class Navigation {
           return DocumentListPage(categoryName: categoryName);
         },
       ),
+      GoRoute(
+        path: scholarshipRoute,
+        builder: (context, state) {
+          return ScholarshipPage();
+        },
+      )
     ],
   );
 }

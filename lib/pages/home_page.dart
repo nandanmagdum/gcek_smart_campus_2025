@@ -66,6 +66,7 @@ class HomePage extends StatelessWidget {
                     TopicContainer(
                       text: "Scholarship",
                       imagePath: 'assets/app_icons/scholarship.png',
+                      newPage: Navigation.scholarshipRoute,
                     ),
                   ],
                 ),

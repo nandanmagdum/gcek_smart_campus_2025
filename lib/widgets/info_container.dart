@@ -47,8 +47,11 @@ class InfoContainer extends StatelessWidget {
           }
         },
         child: Container(
+            constraints: BoxConstraints(
+              minHeight: 50,
+            ),
             margin: const EdgeInsets.symmetric(vertical: 1),
-            height: 50,
+            padding: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
             decoration: BoxDecoration(
               color: AppColors.palate5,
               borderRadius: BorderRadius.circular(12),
@@ -56,7 +59,7 @@ class InfoContainer extends StatelessWidget {
             width: MediaQuery.of(context).size.width * 0.9,
             child: Center(
               child: Text(
-                textAlign: TextAlign.start,
+                textAlign: TextAlign.center,
                 title,
                 style: TextStyle(
                   color: Colors.black,
