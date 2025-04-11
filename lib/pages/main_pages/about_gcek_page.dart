@@ -147,15 +147,22 @@ class AboutGcekPage extends StatelessWidget {
                 fontWeight: FontWeight.normal,
                 textAlign: TextAlign.start,
               ),
-            ].animate(effects: [
-              SlideEffect(
-                begin: Offset(0, 2),
-                end: const Offset(0, 0),
-                duration: Duration(
-                  milliseconds: 900,
+            ]
+                .animate(
+                  delay: Duration(
+                    milliseconds: 600,
+                  ),
+                )
+                .fadeIn(
+                  duration: Duration(
+                    milliseconds: 400,
+                  ),
+                )
+                .slideY(
+                  begin: 0.5,
+                  end: 0,
+                  curve: Curves.easeInQuint,
                 ),
-              ),
-            ]),
           ),
         ),
       ),

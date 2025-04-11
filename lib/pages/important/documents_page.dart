@@ -39,6 +39,7 @@ class DocumentsPage extends StatelessWidget {
                 itemCount: DocumentsData.categories.length,
                 itemBuilder: (context, index) {
                   return InfoContainer(
+                    index: index,
                     fontSize: 16,
                     title: DocumentsData.categories[index],
                     route: Navigation.documentListRoute,

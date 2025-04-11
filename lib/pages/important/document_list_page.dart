@@ -49,18 +49,18 @@ class DocumentListPage extends StatelessWidget {
                 height: 20,
               ),
               TitleContainer(title: 'Documents Required'),
-              ListView(
+              ListView.builder(
                 physics: NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
-                children: DocumentsData.documents[categoryName]!.map(
-                  (e) {
-                    return InfoContainer(
-                      title: e,
-                      fontWeight: FontWeight.normal,
-                      fontSize: 14,
-                    );
-                  },
-                ).toList(),
+                itemCount: DocumentsData.documents[categoryName]!.length,
+                itemBuilder: (context, index) {
+                  return InfoContainer(
+                    title: DocumentsData.documents[categoryName]![index],
+                    index: index,
+                    fontWeight: FontWeight.normal,
+                    fontSize: 14,
+                  );
+                },
               ),
             ],
           ),

@@ -15,6 +15,7 @@ class InfoContainer extends StatelessWidget {
   final TextAlign? textAlign;
   final FontWeight? fontWeight;
   final bool textPadding;
+  final int index;
   const InfoContainer({
     super.key,
     required this.title,
@@ -23,60 +24,61 @@ class InfoContainer extends StatelessWidget {
     this.fontWeight,
     this.textAlign,
     this.textPadding = false,
+    this.index = 1,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Animate(
-      effects: [
-        const FadeEffect(
-          duration: Duration(
-            milliseconds: 300,
-          ),
+    return GestureDetector(
+      onTap: () {
+        if (route != null) {
+          context.push(route!, extra: title);
+        } else if (title.startsWith("+")) {
+          AppUrlLauncher.launchPhone(title);
+        }
+      },
+      child: Container(
+        constraints: BoxConstraints(
+          minHeight: 50,
         ),
-        const SlideEffect(
-          begin: Offset(0, 2),
-          end: const Offset(0, 0),
-          duration: Duration(
-            milliseconds: 900,
-          ),
+        margin: const EdgeInsets.symmetric(vertical: 1),
+        padding: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+        decoration: BoxDecoration(
+          color: AppColors.palate5,
+          borderRadius: BorderRadius.circular(12),
         ),
-      ],
-      child: GestureDetector(
-        onTap: () {
-          if (route != null) {
-            context.push(route!, extra: title);
-          } else if (title.startsWith("+")) {
-            AppUrlLauncher.launchPhone(title);
-          }
-        },
-        child: Container(
-          constraints: BoxConstraints(
-            minHeight: 50,
-          ),
-          margin: const EdgeInsets.symmetric(vertical: 1),
-          padding: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
-          decoration: BoxDecoration(
-            color: AppColors.palate5,
-            borderRadius: BorderRadius.circular(12),
-          ),
-          width: MediaQuery.of(context).size.width * 0.9,
-          child: Center(
-            child: Padding(
-              padding: EdgeInsets.all(textPadding ? 12 : 0),
-              child: Text(
-                textAlign: textAlign ?? TextAlign.center,
-                title,
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: fontSize ?? 18,
-                  fontWeight: fontWeight ?? FontWeight.bold,
-                ),
+        width: MediaQuery.of(context).size.width * 0.9,
+        child: Center(
+          child: Padding(
+            padding: EdgeInsets.all(textPadding ? 12 : 0),
+            child: Text(
+              textAlign: textAlign ?? TextAlign.center,
+              title,
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: fontSize ?? 18,
+                fontWeight: fontWeight ?? FontWeight.bold,
               ),
             ),
           ),
         ),
       ),
-    );
+    )
+        .animate(
+          delay: Duration(
+            milliseconds: 200 * (index % 10),
+          ),
+        )
+        .fadeIn(
+          duration: Duration(
+            milliseconds: 600,
+          ),
+          curve: Curves.easeInOut,
+        )
+        .slideY(
+          begin: 0.5,
+          end: 0,
+          curve: Curves.easeInOutQuint,
+        );
   }
 }

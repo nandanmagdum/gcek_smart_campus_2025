@@ -29,6 +29,7 @@ class BranchesPage extends StatelessWidget {
                 itemCount: BranchesData.allBranches.length,
                 itemBuilder: (context, index) {
                   return InfoContainer(
+                    index: index,
                     fontSize: 14,
                     fontWeight: FontWeight.normal,
                     title: BranchesData.allBranches[index],

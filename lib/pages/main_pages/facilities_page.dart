@@ -18,6 +18,7 @@ class FacilitiesPage extends StatelessWidget {
           itemCount: FacilitiesData.features.length,
           itemBuilder: (context, index) {
             return InfoContainer(
+              index: index,
               fontSize: 16,
               fontWeight: FontWeight.normal,
               title: FacilitiesData.features[index],

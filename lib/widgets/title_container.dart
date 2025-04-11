@@ -16,20 +16,20 @@ class TitleContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     final LinkController linkController = Get.find<LinkController>();
     return Animate(
-      effects: [
-        FadeEffect(
-          duration: Duration(
-            milliseconds: 300,
-          ),
-        ),
-        SlideEffect(
-          begin: Offset(0, 2),
-          end: Offset(0, 0),
-          duration: Duration(
-            seconds: 1,
-          ),
-        ),
-      ],
+      // effects: [
+      //   FadeEffect(
+      //     duration: Duration(
+      //       milliseconds: 300,
+      //     ),
+      //   ),
+      //   SlideEffect(
+      //     begin: Offset(0, 2),
+      //     end: Offset(0, 0),
+      //     duration: Duration(
+      //       seconds: 1,
+      //     ),
+      //   ),
+      // ],
       child: GestureDetector(
         onTap: () {
           if (link != null) {
