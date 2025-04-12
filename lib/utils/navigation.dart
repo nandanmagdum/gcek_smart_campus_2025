@@ -1,6 +1,8 @@
 import 'package:go_router/go_router.dart';
 import 'package:smart_campus/data/documents_data.dart';
+import 'package:smart_campus/models/club_model.dart';
 import 'package:smart_campus/models/document_list_model.dart';
+import 'package:smart_campus/pages/clubs/club_details_page.dart';
 import 'package:smart_campus/pages/clubs/club_landing_page.dart';
 import 'package:smart_campus/pages/home_page.dart';
 import 'package:smart_campus/pages/important/admission_page.dart';
@@ -28,6 +30,7 @@ class Navigation {
   static const pdfViewRoute = '/pdfView';
   static const placementRecordRoute = '/placement_pdf';
   static const clubLandingRoute = '/clubs';
+  static const clubDetailsPageRoute = '/clubs/details';
 
   static final GoRouter router = GoRouter(
     initialLocation: rootRoute,
@@ -105,7 +108,16 @@ class Navigation {
         builder: (context, state) {
           return ClubLandingPage();
         },
-      )
+      ),
+      GoRoute(
+        path: clubDetailsPageRoute,
+        builder: (context, state) {
+          final ClubModel clubModel = state.extra as ClubModel;
+          return ClubDetailsPage(
+            clubModel: clubModel,
+          );
+        },
+      ),
     ],
   );
 }

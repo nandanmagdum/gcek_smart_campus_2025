@@ -4,7 +4,7 @@ class ClubModel {
   final String? info;
   final String? logoUrl;
   final String? instaId;
-  // final List<String?>? images;
+  final List<dynamic> images;
 
   ClubModel({
     required this.name,
@@ -12,7 +12,7 @@ class ClubModel {
     required this.info,
     required this.logoUrl,
     required this.instaId,
-    // required this.images,
+    required this.images,
   });
 
   factory ClubModel.fromJson(Map<String, dynamic> json) {
@@ -22,7 +22,7 @@ class ClubModel {
       info: json['info'] as String,
       logoUrl: json['logoUrl'] as String,
       instaId: json['instaId'] as String,
-      // images: (json['images'] as List<dynamic>) as List<String>,
+      images: (json['images'] as List<dynamic>),
     );
   }
 }

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:smart_campus/controllers/club_controller.dart';
+import 'package:smart_campus/pages/clubs/club_logo_card.dart';
+import 'package:smart_campus/pages/main_pages/about_gcek_page.dart';
 import 'package:smart_campus/widgets/primary_app_bar.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 class ClubLandingPage extends StatelessWidget {
   const ClubLandingPage({super.key});
@@ -21,11 +24,31 @@ class ClubLandingPage extends StatelessWidget {
             child: Text(clubController.error.value),
           );
         } else if (clubController.clubs.isNotEmpty) {
-          return ListView.builder(
-            shrinkWrap: true,
+          return GridView.builder(
             itemCount: clubController.clubs.length,
+            gridDelegate:
+                SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
             itemBuilder: (context, index) {
-              return Text(clubController.clubs[index].name ?? "");
+              return ClubLogoCard(
+                clubModel: clubController.clubs[index],
+              )
+                  .animate(
+                    delay: Duration(
+                      milliseconds: 200 * (index % 10),
+                    ),
+                  )
+                  .fadeIn(
+                    duration: Duration(milliseconds: 400),
+                    curve: Curves.easeInQuint,
+                  )
+                  .slideY(
+                    begin: 0.2,
+                    end: 0,
+                    duration: Duration(
+                      milliseconds: 400,
+                    ),
+                    curve: Curves.easeInQuint,
+                  );
             },
           );
         } else {

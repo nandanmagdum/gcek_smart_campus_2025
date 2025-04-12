@@ -10,7 +10,13 @@ import 'package:smart_campus/utils/app_url_launcher.dart';
 class TitleContainer extends StatelessWidget {
   final String title;
   final String? link;
-  const TitleContainer({super.key, required this.title, this.link});
+  final String? url;
+  const TitleContainer({
+    super.key,
+    required this.title,
+    this.link,
+    this.url,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +43,8 @@ class TitleContainer extends StatelessWidget {
             AppUrlLauncher.lauchTheUrl(url);
           } else if (title.startsWith('+9')) {
             AppUrlLauncher.launchPhone(title);
+          } else if (url != null) {
+            AppUrlLauncher.lauchTheUrl(url!);
           }
         },
         child: Container(
